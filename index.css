@@ -1,3 +1,68 @@
-.h1{
-    color: red;
+body {
+    padding: 0 20px;
+}
+
+.body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header {
+    border: 1px solid balck;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+
+}
+
+.logo>img {
+    width: 70px;
+}
+
+.nav__bar>ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav__bar>ul>li {
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+.nav__bar>ul>li:hover {
+    cursor: pointer;
+}
+
+.card {
+    height: 350px;
+    width: 250px;
+    padding: 20px;
+    background-color: AABBCC;
+    margin-top: 20px;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.card__img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.star_rating {
+    background-color: lightgreen;
+    width: 4rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
