@@ -52,6 +52,10 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+.card__img {
+    height: 200px;
+}
+
 .card__img img {
     height: 100%;
     width: 100%;
@@ -65,4 +69,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.cousines {
+    widows: 2;
+    orphans: 2;
+    word-break: break-all;
 }
