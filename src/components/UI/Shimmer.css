@@ -1,0 +1,54 @@
+.card-container {
+    display: flex;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 16px;
+    background-color: #fff;
+    border: 1px solid black;
+    width: 250px;
+    height: 300px;
+    justify-content: center;
+}
+
+.card-image {
+    height: 200px;
+    width: 100%;
+    background-color: #eee;
+}
+
+
+
+.shimmer-effect {
+    background-color: #f6f7f8;
+    background-image: linear-gradient(to right,
+            #f6f7f8 0%,
+            #e6e7e8 20%,
+            #f6f7f8 40%,
+            #f6f7f8 100%);
+    background-repeat: no-repeat;
+    background-size: 800px 104px;
+    display: inline-block;
+    position: relative;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: shimmer;
+    animation-timing-function: linear;
+}
+
+
+
+@keyframes shimmer {
+    0% {
+        background-position: -468px 0;
+    }
+
+    100% {
+        background-position: 468px 0;
+    }
+}
+
+.shimmer {
+    margin-top: 20px;
+    justify-content: center;
+}
