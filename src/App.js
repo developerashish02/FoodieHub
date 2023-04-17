@@ -9,6 +9,7 @@ import ContactUs from "./components/pages/ContactUs";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import CardDetail from "./components/card/CardDetail";
 
+
 const App = () => {
 	return (
 		<div className="app">
