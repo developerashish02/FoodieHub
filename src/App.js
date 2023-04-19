@@ -8,6 +8,7 @@ import ContactUs from "./components/pages/ContactUs";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import CardDetail from "./components/card/CardDetail";
+import ErrorPage from './components/pages/ErrorPage';
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <App />,
+		errorElement: <ErrorPage />,
 		children: [
 			{
 				path: "/about",
