@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "../index.css";
-import Header from "./components/Header";
-import MainBody from "./components/MainBody";
+import Header from "./components/layout/Header";
+import MainBody from "./components/Home/MainBody";
 import AboutPage from "./components/pages/AboutPage";
 import ContactUs from "./components/pages/ContactUs";
 

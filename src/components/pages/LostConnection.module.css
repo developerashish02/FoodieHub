@@ -1,0 +1,15 @@
+.offline_message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f8f8;
+    font-size: 1.2rem;
+}
+
+.message_text {
+    margin: 1rem;
+    text-align: center;
+    color: #333;
+}

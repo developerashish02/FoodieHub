@@ -1,4 +1,4 @@
-import { HEADER_LOGO } from "./utils/constants";
+import { HEADER_LOGO } from "../utils/constants";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
