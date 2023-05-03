@@ -8,9 +8,17 @@ import ContactUs from "./components/pages/ContactUs";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import CardDetail from "./components/card/CardDetail";
 import ErrorPage from './components/pages/ErrorPage';
+import useIsOnline from "./components/utils/useIsOnline";
+import LostConnection from "./components/pages/LostConnection";
 
 
 const App = () => {
+	const isOnline = useIsOnline();
+
+	if (!isOnline) {
+		return <LostConnection />
+	}
+
 	return (
 		<div className="app">
 			<Header />

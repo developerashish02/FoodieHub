@@ -1,18 +1,15 @@
 import ShimmerCard from "../UI/ShimmerCard";
 import styles from "./CardDetail.module.css";
-import { CARD_DETAIL_API, CARD_IMG } from "../utils/constants";
+import { CARD_IMG } from "../utils/constants";
 import { useParams } from "react-router-dom";
 import useRestaurantData from "../utils/useRestaurantDara";
 
 const CardDetail = () => {
 	const { id } = useParams();
-	// const [restaurant, setRestaurant] = useState({});
 	const restaurant = useRestaurantData(id);
 	const { name, cuisines, costForTwo, cloudinaryImageId } = restaurant;
 
-	return !restaurant ? (
-		<ShimmerCard />
-	) : (
+	return (
 		<div className={styles.foodDetail}>
 			<div className={styles.foodImage}>
 				<img src={CARD_IMG + cloudinaryImageId} alt="Food" />

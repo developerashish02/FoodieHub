@@ -21,7 +21,7 @@ const MainBody = () => {
 	};
 
 	if (!isOnline) {
-		return <LostConnection />
+		return <LostConnection />;
 	}
 
 	return (
