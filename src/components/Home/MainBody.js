@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../card/Card";
 import { Link } from "react-router-dom";
 import ShimmerCard from "../UI/ShimmerCard";
 import "./MainBody.css";
 import "../../../index.css";
-import useGetRestaurant from "../utils/useGetRestaurant";
-import useIsOnline from "../utils/useIsOnline";
 import LostConnection from "../pages/LostConnection";
+import useGetRestaurant from "../../hooks/useGetRestaurant";
+import { filterRestaurants } from "../utils/helper";
+import useIsOnline from "../../hooks/useIsOnline";
 
 const MainBody = () => {
 	const [searchText, setSearchText] = useState("");
-	const [restaurant, filterRestaurant] = useGetRestaurant();
+	const getRestaurants = useGetRestaurant()
+	const [filterRestaurant, setFilterRestaurant] = useState([]);
 	const isOnline = useIsOnline();
 
-	const handleSearch = () => {
-		// const filterData = restaurant?.filter((restaurant) =>
-		// 	restaurant?.data?.name?.toLowerCase().includes(searchText.toLowerCase())
-		// );
-		// setFilterRestaurant(filterData);
-	};
+	useEffect(() => {
+		setFilterRestaurant(getRestaurants)
+	}, [getRestaurants])
+
 
 	if (!isOnline) {
 		return <LostConnection />;
@@ -32,12 +32,15 @@ const MainBody = () => {
 					placeholder="Search..."
 					onChange={(e) => setSearchText(e.target.value)}
 				/>
-				<button type="button" onClick={handleSearch}>
+				<button type="button" onClick={() => {
+					const filter = filterRestaurants(getRestaurants, searchText)
+					setFilterRestaurant(filter);
+				}}>
 					Search
 				</button>
 			</div>
 
-			{restaurant.length === 0 && <ShimmerCard />}
+			{filterRestaurant?.length === 0 && <ShimmerCard />}
 			<div className="cards">
 				{filterRestaurant?.map((restaurant) => (
 					<Link
