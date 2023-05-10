@@ -6,8 +6,8 @@ const ShimmerCard = () => {
         <div className="cards shimmer">
             {Array(12)
                 .fill("")
-                .map((shimmerCard) => (
-                    <div className="card-container shimmer-effect"></div>
+                .map((shimmerCard, index) => (
+                    <div className="card-container shimmer-effect" key={index}></div>
                 ))}
         </div>
     );

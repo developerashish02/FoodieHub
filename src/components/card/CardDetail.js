@@ -3,22 +3,12 @@ import styles from "./CardDetail.module.css";
 import { CARD_DETAIL_API, CARD_IMG } from "../utils/constants";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import useRestaurant from "../../hooks/useRestaurant";
 
 const CardDetail = () => {
 	const { id } = useParams();
-	const [restaurant, setRestaurant] = useState({});
+	const restaurant = useRestaurant(id);
 	const { name, cuisines, costForTwo, cloudinaryImageId } = restaurant;
-
-	useEffect(() => {
-		getCardDetail();
-	}, []);
-
-	async function getCardDetail() {
-		const response = await fetch(CARD_DETAIL_API + id);
-		const data = await response.json();
-		setRestaurant(data?.data?.cards[0]?.card?.card?.info);
-		console.log(data?.data?.cards[0]?.card?.card?.info);
-	}
 
 	return !restaurant ? (
 		<ShimmerCard />

@@ -5,9 +5,12 @@ import "./Header.css";
 const Header = () => {
     return (
         <div className="header">
-            <div className="logo">
-                <img src={HEADER_LOGO} alt="" />
-            </div>
+
+            <Link to={"/"}>
+                <div className="logo">
+                    <img src={HEADER_LOGO} alt="" />
+                </div>
+            </Link>
 
             <div className="nav__bar">
                 <ul>
