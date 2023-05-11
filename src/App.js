@@ -1,16 +1,17 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom";
 import Header from "./components/layout/Header";
 import MainBody from "./components/Home/MainBody";
-import AboutPage from "./components/pages/AboutPage";
-import ContactUs from "./components/pages/ContactUs";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import CardDetail from "./components/card/CardDetail";
 import ErrorPage from "./components/pages/ErrorPage";
-
 import LostConnection from "./components/pages/LostConnection";
 import useIsOnline from "./hooks/useIsOnline";
+
+// lazy loding
+const AboutPage = lazy(() => import("./components/pages/AboutPage"));
+const ContactUs = lazy(() => import("./components/pages/ContactUs"));
 
 const App = () => {
 	const isOnline = useIsOnline();
@@ -35,7 +36,11 @@ const router = createBrowserRouter([
 		children: [
 			{
 				path: "/about",
-				element: <AboutPage />,
+				element: (
+					<Suspense fallback={<h1>Loding...</h1>}>
+						<AboutPage />
+					</Suspense>
+				),
 			},
 			{
 				path: "/",
@@ -43,7 +48,11 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/contact-us",
-				element: <ContactUs />,
+				element: (
+					<Suspense fallback={<h1>Loding....</h1>}>
+						<ContactUs />
+					</Suspense>
+				),
 			},
 			{
 				path: "/card-detail/:id",
