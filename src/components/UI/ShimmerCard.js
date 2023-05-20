@@ -3,7 +3,7 @@ import "./Shimmer.css";
 
 const ShimmerCard = () => {
     return (
-        <div className="cards shimmer">
+        <div className="grid grid-cols-4 gap-4 place-content-center mt-4 mx-3">
             {Array(12)
                 .fill("")
                 .map((shimmerCard, index) => (

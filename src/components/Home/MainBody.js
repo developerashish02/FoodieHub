@@ -22,13 +22,13 @@ const MainBody = () => {
 	}
 
 	return (
-		<div className="body">
-			<div className="flex justify-center my-4">
+		<div className="bg-gray-50">
+			<div className="flex justify-center ">
 				<input
 					type="text"
-					placeholder="Search..."
+					placeholder="Search for restaurants and food..."
 					onChange={(e) => setSearchText(e.target.value)}
-					className="h-10 bottom-2 w-96 px-4 py-4 outline-none"
+					className="h-10 bottom-2 w-96 px-4 py-4 outline-none border-solid border-2 border-gray-300"
 				/>
 				<button
 					type="button"
@@ -43,7 +43,7 @@ const MainBody = () => {
 			</div>
 
 			{filterRestaurant?.length === 0 && <ShimmerCard />}
-			<div className="flex flex-wrap gap-6 justify-center mx-4 overflow-x-hidden">
+			<div className="grid grid-cols-4 gap-4 place-content-center mt-4 mx-3">
 				{filterRestaurant?.map((restaurant) => (
 					<Link
 						to={"/card-detail/" + restaurant.data.id}
