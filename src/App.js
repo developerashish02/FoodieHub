@@ -21,7 +21,7 @@ const App = () => {
 	}
 
 	return (
-		<div className="app">
+		<div className="app bg-gray-200 font-sans">
 			<Header />
 			<Outlet />
 		</div>
