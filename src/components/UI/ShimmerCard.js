@@ -1,5 +1,4 @@
 import React from "react";
-import "./Shimmer.css";
 
 const ShimmerCard = () => {
     return (
@@ -7,7 +6,7 @@ const ShimmerCard = () => {
             {Array(12)
                 .fill("")
                 .map((shimmerCard, index) => (
-                    <div className="card-container shimmer-effect" key={index}></div>
+                    <div className="w-72 h-80  bg-gray-300  " key={index}></div>
                 ))}
         </div>
     );

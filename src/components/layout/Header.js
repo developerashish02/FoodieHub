@@ -5,7 +5,7 @@ import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
 	return (
-		<div className="flex items-center w-full px-4 py-4 h-20 bg-white ">
+		<div className="flex items-center w-full px-4 py-4 h-20 bg-white">
 			<div>
 				<Link to={"/"}>
 					<img src={HEADER_LOGO} alt="" className="h-16" />
