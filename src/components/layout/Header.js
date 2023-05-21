@@ -13,16 +13,20 @@ const Header = () => {
 			</div>
 
 			<ul className="flex space-x-12 justify-end w-full py-4 text-base ">
-				<li className="hover:text-orange-600">
+				<li className="hover:text-orange-600 ">
+					<i className="fa-solid fa-house mr-1"></i>
 					<Link to="/">Home</Link>
 				</li>
 				<li className="hover:text-orange-600">
+					<i className="fa-solid fa-address-card  mr-1"></i>
 					<Link to="/about">About</Link>
 				</li>
 				<li className="hover:text-orange-600">
+					<i className="fa-solid fa-address-book  mr-1"></i>
 					<Link to="/contact-us">Contact Us</Link>
 				</li>
 				<li className="hover:text-orange-600">
+					<i className="fa-solid fa-cart-shopping  mr-1"></i>
 					<Link to="/card">Cart</Link>
 				</li>
 			</ul>
