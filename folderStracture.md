@@ -67,3 +67,7 @@ src/
 |-- routes.js
 |-- store.js
 |-- ...
+
+
+<!-- Redux configuration -->
+

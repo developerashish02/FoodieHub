@@ -69,3 +69,37 @@ root.render(
 		<RouterProvider router={router} />
 	</React.StrictMode>
 );
+
+
+/**  
+ *create store 
+ *  1) configureStore() - RTK 
+ * 
+ * provide my store to app - React-redux
+ *  2) <Provider store={store}> 
+ *          <App/>
+ *     <Provider/> 
+ * 
+ * 3) Slice -  RTK 
+ *      createSlice({
+ *          name:"" , 
+ *          initialState:"" ,
+ *          reducers:{
+				addItem : (state , action ) => {}
+  *          }
+ *      }) 
+ * 
+//  * export reduces 
+ * export defailt cartSlice.reducer 
+
+// * export actions 
+export const {addToCart , removeItem} = cartSlice.actions;
+
+// * put that slice in store 
+
+{
+	reducer: {
+		cart:cartSlice
+	}
+}
+**/
