@@ -1,14 +1,12 @@
 import { CARD_IMG } from "../utils/constants";
 
 const RestaurantMenu = (props) => {
-	console.log(props.restaurant, "Res Menu...");
-
 	const { name, price, description, isBestseller, imageId } = props.restaurant;
 
 	return (
 		<>
 			<hr className="my-4" />
-			<div className="flex content-center">
+			<div className="flex content-center space-x-6">
 				<div className="p-2 mb-6 w-4/5">
 					{isBestseller && (
 						<div className="space-x-2">
@@ -25,12 +23,16 @@ const RestaurantMenu = (props) => {
 					</div>
 				</div>
 
-				<div className="w-36 h-36 rounded-lg mt-4">
+				<div className="w-28 h-20 rounded-lg  relative flex items-center justify-center ">
 					<img
 						src={CARD_IMG + imageId}
 						alt=""
-						className=" object-contain rounded-lg"
+						className="rounded-lg opacity-60 w-full h-full object-cover"
 					/>
+
+					<button className="px-6 rounded-xl font-bold absolute bottom-[-1.2rem]  p-2 bg-orange-400 text-white text-sm  ">
+						ADD
+					</button>
 				</div>
 			</div>
 		</>
