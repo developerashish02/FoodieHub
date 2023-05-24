@@ -3,7 +3,8 @@ import { CARD_IMG } from "../utils/constants";
 import { addToCart } from "../../features/cartSlice";
 
 const RestaurantMenu = (props) => {
-	const { name, price, description, isBestseller, imageId } = props.restaurant;
+	const { name, price, description, isBestseller, imageId, quntity } =
+		props.restaurant;
 	// console.log(props.restaurant)
 	const dispatch = useDispatch();
 
