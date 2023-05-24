@@ -8,7 +8,9 @@ import CardDetail from "./components/card/CardDetail";
 import ErrorPage from "./components/pages/ErrorPage";
 import LostConnection from "./components/pages/LostConnection";
 import useIsOnline from "./hooks/useIsOnline";
-
+import { Provider } from "react-redux";
+import store from "./store/store";
+import Cart from "./components/Cart";
 // lazy loding
 const AboutPage = lazy(() => import("./components/pages/AboutPage"));
 const ContactUs = lazy(() => import("./components/pages/ContactUs"));
@@ -22,8 +24,10 @@ const App = () => {
 
 	return (
 		<div className="">
-			<Header />
-			<Outlet />
+			<Provider store={store}>
+				<Header />
+				<Outlet />
+			</Provider>
 		</div>
 	);
 };
@@ -58,6 +62,10 @@ const router = createBrowserRouter([
 				path: "/card-detail/:id",
 				element: <CardDetail />,
 			},
+			{
+				path: "/cart",
+				element: <Cart />
+			}
 		],
 	},
 ]);
@@ -69,7 +77,6 @@ root.render(
 		<RouterProvider router={router} />
 	</React.StrictMode>
 );
-
 
 /**  
  *create store 

@@ -3,14 +3,19 @@ import { CARD_IMG } from "../utils/constants";
 import { useParams } from "react-router-dom";
 import useRestaurant from "../../hooks/useRestaurant";
 import RestaurantMenu from "./RestaurantMenu";
+import ShimmerDeatils from "../UI/ShimmerDetails";
 
 const CardDetail = () => {
 	const { id } = useParams();
 	const [restaurant, restaurantMenu] = useRestaurant(id);
 	const { name, cuisines, cloudinaryImageId, areaName, avgRating, locality } =
-		restaurant;
+		restaurant || {};
 
-	return (
+	console.log(restaurantMenu);
+
+	return !restaurant ? (
+		<ShimmerDeatils />
+	) : (
 		<div className="bg-white mx-20 mt-8  ">
 			<div className="grid grid-cols-4 gap-4">
 				<div className="col-span-3 h-64">
@@ -50,8 +55,8 @@ const CardDetail = () => {
 			<hr />
 			<div className="mt-4 m-auto ml-6">
 				<h1 className="font-bold text-2xl text-center">Menu</h1>
-				{restaurantMenu?.map((resMenu) => (
-					<RestaurantMenu restaurant={resMenu?.card?.info} />
+				{restaurantMenu?.map((resMenu, index) => (
+					<RestaurantMenu restaurant={resMenu?.card?.info} key={index} />
 				))}
 			</div>
 		</div>

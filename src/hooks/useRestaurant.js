@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { CARD_DETAIL_API } from "../components/utils/constants";
 
 const useRestaurant = (id) => {
-    const [restaurant, setRestaurant] = useState({});
+    const [restaurant, setRestaurant] = useState();
     const [restaurantMenu, setRestaurantMenu] = useState([]);
 
 

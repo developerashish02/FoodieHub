@@ -1,14 +1,16 @@
-import { HEADER_LOGO } from "../utils/constants";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+	const cartItems = useSelector((store) => store.cart.items);
+
 	return (
 		<div className="flex items-center w-full px-4 py-4 h-20 bg-white">
 			<div>
 				<Link to={"/"}>
-					<img src={HEADER_LOGO} alt="" className="h-16" />
+					<h2 className="font-bold font-serif text-2xl text-red-500">
+						FoodieHub
+					</h2>
 				</Link>
 			</div>
 
@@ -27,7 +29,7 @@ const Header = () => {
 				</li>
 				<li className="hover:text-orange-600">
 					<i className="fa-solid fa-cart-shopping  mr-1"></i>
-					<Link to="/card">Cart</Link>
+					<Link to="/cart">Cart ({cartItems.length})</Link>
 				</li>
 			</ul>
 		</div>

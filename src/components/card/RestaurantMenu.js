@@ -1,7 +1,19 @@
+import { useDispatch } from "react-redux";
 import { CARD_IMG } from "../utils/constants";
+import { addToCart } from "../../features/cartSlice";
 
 const RestaurantMenu = (props) => {
 	const { name, price, description, isBestseller, imageId } = props.restaurant;
+	// console.log(props.restaurant)
+	const dispatch = useDispatch();
+
+	const handleAddToCart = () => {
+		const restaurant = {
+			...props.restaurant,
+			quntity: 1,
+		};
+		dispatch(addToCart(restaurant));
+	};
 
 	return (
 		<>
@@ -17,20 +29,25 @@ const RestaurantMenu = (props) => {
 					<div className="">
 						<h3 className="text-lg font-medium">{name}</h3>
 
-						<p className="text-base">Rs {price / 100}</p>
+						<p className="text-base">Rs {Number(price / 100)}</p>
 
 						<p className="text-sm font-thin">{description}</p>
 					</div>
 				</div>
 
 				<div className="w-28 h-20 rounded-lg  relative flex items-center justify-center ">
-					<img
-						src={CARD_IMG + imageId}
-						alt=""
-						className="rounded-lg opacity-60 w-full h-full object-cover"
-					/>
+					{imageId && (
+						<img
+							src={CARD_IMG + imageId}
+							alt=""
+							className="rounded-lg opacity-60 w-full h-full object-cover"
+						/>
+					)}
 
-					<button className="px-6 rounded-xl font-bold absolute bottom-[-1.2rem]  p-2 bg-orange-400 text-white text-sm  ">
+					<button
+						className="px-6 rounded-xl font-bold absolute bottom-[-1.2rem]  p-2 bg-orange-400 text-white text-sm"
+						onClick={handleAddToCart}
+					>
 						ADD
 					</button>
 				</div>

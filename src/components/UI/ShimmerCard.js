@@ -2,7 +2,7 @@ import React from "react";
 
 const ShimmerCard = () => {
     return (
-        <div className="grid grid-cols-4 gap-4 place-content-center mt-4 mx-3">
+        <div className="grid grid-cols-4 gap-4 place-content-center mt-4 mx-9">
             {Array(12)
                 .fill("")
                 .map((shimmerCard, index) => (
