@@ -11,16 +11,18 @@ const CartDetail = (props) => {
     };
 
     const handleRemoveItem = () => {
-        dispatch(removeItem(id))
-    }
+        dispatch(removeItem(id));
+    };
 
     return (
         <>
-            <div className="flex justify-between p-4 my-4 ">
+            <div className="flex justify-between p-4 my-4 border-2 border-orange-400-600 rounded-md">
                 <div className=" flex space-x-6">
-                    <div className="w-14">
-                        <img src={CARD_IMG + imageId} alt={name} />
-                    </div>
+                    {imageId && (
+                        <div className="w-14">
+                            <img src={CARD_IMG + imageId} alt={name} />
+                        </div>
+                    )}
 
                     <div>
                         <h2 className="font-bold">{name}</h2>
@@ -29,7 +31,10 @@ const CartDetail = (props) => {
                 </div>
 
                 <div className="flex items-center">
-                    <button className="px-2 py-1 border border-gray-300 rounded-md mr-2" onClick={handleRemoveItem}>
+                    <button
+                        className="px-2 py-1 border border-gray-300 rounded-md mr-2"
+                        onClick={handleRemoveItem}
+                    >
                         -
                     </button>
                     <span className="font-bold mr-2"> {quntity}</span>
@@ -40,7 +45,8 @@ const CartDetail = (props) => {
                         +
                     </button>
                 </div>
-            </div></>
+            </div>
+        </>
     );
 };
 

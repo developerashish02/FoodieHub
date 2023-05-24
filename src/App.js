@@ -11,9 +11,11 @@ import useIsOnline from "./hooks/useIsOnline";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import Cart from "./components/Cart";
+import ShimmerDeatils from "./components/UI/ShimmerDetails";
 // lazy loding
 const AboutPage = lazy(() => import("./components/pages/AboutPage"));
 const ContactUs = lazy(() => import("./components/pages/ContactUs"));
+const Cart = lazy(() => import("./components/Cart"));
 
 const App = () => {
 	const isOnline = useIsOnline();
@@ -64,8 +66,12 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/cart",
-				element: <Cart />
-			}
+				element: (
+					<Suspense fallback={<ShimmerDeatils />}>
+						<Cart />
+					</Suspense>
+				),
+			},
 		],
 	},
 ]);
