@@ -11,7 +11,6 @@ const CardDetail = () => {
 	const { name, cuisines, cloudinaryImageId, areaName, avgRating, locality } =
 		restaurant || {};
 
-	console.log(restaurantMenu);
 
 	return !restaurant ? (
 		<ShimmerDeatils />

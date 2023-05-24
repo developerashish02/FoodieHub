@@ -9,10 +9,8 @@ const cartSlice = createSlice({
     reducers: {
         addToCart: (state, action) => {
             let { id, quntity } = action.payload;
-            console.log(id, state.items[0], "Checking");
-
-            const index = state.items.findIndex((item) => item.id === id);
-            console.log(index);
+     
+            const index = state.items.findIndex((item) => item.id === id);      
 
             if (index == -1) {
                 state.items.push(action.payload);
