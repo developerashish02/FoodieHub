@@ -10,11 +10,9 @@ import LostConnection from "./components/pages/LostConnection";
 import useIsOnline from "./hooks/useIsOnline";
 import { Provider } from "react-redux";
 import store from "./store/store";
-import Cart from "./components/Cart";
 import ShimmerDeatils from "./components/UI/ShimmerDetails";
 // lazy loding
 const AboutPage = lazy(() => import("./components/pages/AboutPage"));
-const ContactUs = lazy(() => import("./components/pages/ContactUs"));
 const Cart = lazy(() => import("./components/Cart"));
 
 const App = () => {
@@ -52,14 +50,7 @@ const router = createBrowserRouter([
 				path: "/",
 				element: <MainBody />,
 			},
-			{
-				path: "/contact-us",
-				element: (
-					<Suspense fallback={<h1>Loding....</h1>}>
-						<ContactUs />
-					</Suspense>
-				),
-			},
+
 			{
 				path: "/card-detail/:id",
 				element: <CardDetail />,
