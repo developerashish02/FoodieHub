@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Card from "../card/Card";
-import { Link } from "react-router-dom";
 import ShimmerCard from "../UI/ShimmerCard";
 import LostConnection from "../pages/LostConnection";
-import useGetRestaurant from "../../hooks/useGetRestaurant";
+import Card from "../card/Card";
+import SearchNotFound from "../UI/SearchNotFound";
+import { Link } from "react-router-dom";
 import { filterRestaurants } from "../utils/helper";
+import useGetRestaurant from "../../hooks/useGetRestaurant";
 import useIsOnline from "../../hooks/useIsOnline";
+
 
 const MainBody = () => {
 	const [searchText, setSearchText] = useState("");
@@ -42,7 +44,7 @@ const MainBody = () => {
 				</button>
 			</div>
 
-			{filterRestaurant?.length === 0 && <ShimmerCard />}
+			{getRestaurants?.length === 0 && <ShimmerCard />}
 			<div className="grid grid-cols-4 gap-4 place-content-center mt-4 mx-3">
 				{filterRestaurant?.map((restaurant) => (
 					<Link
@@ -53,7 +55,9 @@ const MainBody = () => {
 					</Link>
 				))}
 			</div>
-		</div>
+
+			{filterRestaurant?.length === 0 && <SearchNotFound />}
+		</div >
 	);
 };
 
