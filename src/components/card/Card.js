@@ -1,7 +1,9 @@
 import { CARD_IMG } from "../utils/constants";
 
 const Card = (props) => {
-	const { avgRating, cuisines, name, cloudinaryImageId } = props.resData.data;
+	// const { avgRating, cuisines, name, cloudinaryImageId } = props.resData.data;
+	const { resData } = props;
+	const { name, avgRating, cuisines, cloudinaryImageId, areaName } = resData.info;
 
 	return (
 		<div className="w-72 h-auto rounded-lg  shadow-md p-4 bg-white ">
